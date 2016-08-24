@@ -1,0 +1,15 @@
+//用整除余数法
+
+int addDigits(int num) {
+    int result =0;
+    while(num>9)
+    {
+        result+=num%10;
+        num=num/10;
+    }
+    result+=num;//如果result>9则继续
+    if(result>9)
+        return addDigits(result);//递归的函数必须不是void类型
+    else
+        return result;
+}
