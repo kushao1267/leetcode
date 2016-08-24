@@ -1,0 +1,8 @@
+int getSum(int a, int b) {//左移->异或->左移->异或...
+    int sum,carry;
+    if (b==0)
+     return a;
+     sum=a^b;//异或运算
+     carry=(a&b)<<1;//对0加0、0加1、1加0而言，都不会产生进位，只有1加1时，会向前产生一个进位。因此两个数先做位与运算，然后再向左移动一位。
+     return getSum(sum,carry);  
+}
