@@ -1,0 +1,50 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#---------广度优先算法(BFS)-----------------------
+'''
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if not root:return []
+        queue,res,tmp,count=[root],[[root.val]],[],1#队列,初始化加入第一个结点root,顺序打印
+        while queue:#每次pop一个元素，就把这个元素的孩子都放入queue
+            data = queue.pop(0)#队列用pop(0),栈用pop().
+            count-=1    #pop一个元素，就把queue的长度减1
+            if data.left:
+                queue.append(data.left)
+            if data.right:
+                queue.append(data.right)
+            if count==0:
+                tmp=[a.val for a in queue]#每次把queue中的元素pop完，就读入下一下stack中所有元素的值
+                res+=[tmp] if tmp else []
+                count=len(queue)#计算出queue的长度，用于下次
+        return res'''
+class Solution(object):
+    def levelOrder(self, root):
+        res,next=[],[]
+        if root:
+            temp=[root]
+        else:
+            return res
+        res.append(temp)#加入根结点
+        while 1:
+            for v in temp:#!!!!这句话才是重点，把上一层所有的结点的左右孩子append到next中
+                if v.left:
+                    next.append(v.left)                
+                if v.right:
+                    next.append(v.right)#每层的元素放入next
+            if next==[]:
+                break
+            res.append(next)#res:[[0层中的所有元素（结构体）],[1层中的所有元素（结构体）],[...]]
+            print type(next)
+            temp=next    #???????????????????????????????
+            print type(temp)
+            next=[]
+        return [[v.val for v in x] for x in res]

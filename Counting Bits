@@ -1,0 +1,11 @@
+class Solution(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+        """
+        b=[]
+        for i in range(num+1):
+            a=list(bin(i)) 
+            b.append(a.count('1'))
+        return b

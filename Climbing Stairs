@@ -1,0 +1,11 @@
+int climbStairs(int n) {
+    int a=0,b=1;
+    int result=0;
+    for (int i=0;i<n;++i)
+    {//不用fib而用，因为递归层次太大，栈存不下
+        result=a+b;//这三行用递归公式f(n)=f(n-1)+f(n-2)一画就懂
+        a=b;
+        b=result;
+    }
+    return result;   
+}

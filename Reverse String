@@ -1,0 +1,9 @@
+class Solution(object):
+    def reverseString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        b=list(s)
+        b.reverse()
+        return ''.join(b)

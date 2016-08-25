@@ -1,0 +1,15 @@
+int comp (const void * a, const void * b) {
+   return ( *(int*)a - *(int*)b );
+}
+
+bool containsNearbyDuplicate(int* nums, int numsSize, int k) {
+    // Sort
+    qsort(nums, numsSize, sizeof(int), comp);
+
+    // Loop
+    for (int i = 0; i < numsSize - 1; i++) {
+        if (nums[i] == nums[i+1]) return true;
+    }
+    
+    return false;
+}

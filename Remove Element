@@ -1,0 +1,10 @@
+int removeElement(int* nums, int numsSize, int val) {
+    int i=0,j=0;//相当于两个指针，不等于val时，j往后跳，当等于时j标记位置。
+    while(i<numsSize)
+    {
+        if(val!=nums[i])//不等于val时
+            nums[j++]=nums[i];
+        ++i;
+    }
+    return j;
+}
